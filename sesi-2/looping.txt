@@ -1,0 +1,49 @@
+package main
+
+import "fmt"
+
+func main() {
+	number := 10
+	for i := 0; i < number; i++ {
+		fmt.Println(i)
+	}
+
+	fmt.Println("==============")
+
+	j := 0
+	for j < number {
+		fmt.Println(j)
+		j++
+	}
+
+	fmt.Println("==============")
+
+	k := 0
+	stop := 10
+	for true {
+		fmt.Println(k)
+		k++
+		if k == stop {
+			break
+		}
+	}
+
+	fmt.Println("==============")
+
+	for a := 0; a < 10; a++ {
+		if a%2 != 0 {
+			continue
+		}
+		fmt.Println(a)
+	}
+
+	fmt.Println("==============")
+
+	for i := 0; i < 10; i++ {
+		for j := 0; j <= i; j++ {
+			fmt.Printf("%d", j)
+		}
+		fmt.Println()
+	}
+
+}

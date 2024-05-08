@@ -1,0 +1,32 @@
+package main
+
+import "fmt"
+
+func main() {
+
+	var fruits [2]string = [2]string{
+		"Apple",
+		"Manggo",
+	}
+
+	for index, value := range fruits {
+		fmt.Printf("index: (%d),  value: (%v) \n", index, value)
+	}
+
+	// for i := 0; i < len(fruits); i++ {
+	// 	fmt.Println(fruits[i])
+	// }
+
+	var conditions [3]bool
+	conditions[0] = true
+
+	var scores [4]int
+	scores = [4]int{
+		20, 30, 10, 0,
+	}
+	scores[3] = 100
+
+	fmt.Printf("fruits => %#v \n", fruits)
+	fmt.Printf("conditions => %#v \n", conditions)
+	fmt.Printf("scores => %#v \n", scores)
+}
