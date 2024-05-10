@@ -1,0 +1,67 @@
+package main
+
+import "fmt"
+
+type Food struct {
+	Name   string
+	Price  int
+	Origin string
+}
+
+type Person struct {
+	Name           string
+	Age            int
+	Address        string
+	FavouriteFoods []Food
+}
+
+func main() {
+	var p1 Person = Person{
+		Name:    "Hendra",
+		Address: "jalan Kemang",
+		Age:     34,
+		FavouriteFoods: []Food{
+			{
+				Name:   "Nasi Goreng",
+				Price:  15000,
+				Origin: "Indonesia",
+			},
+			{
+				Name:   "Mie Ayam",
+				Price:  20000,
+				Origin: "Indonesia",
+			},
+		},
+	}
+	var f1 Food
+	f1.Name = "Nasi Goreng"
+	f1.Price = 10000
+	f1.Origin = "Indonesia"
+
+	_, _ = p1, f1
+
+	fmt.Printf("Person => %+v \n Food => %+v \n", p1, f1)
+
+	// mengisi struct kedalam slice
+	var foods []Food = []Food{
+		{
+			Name:   "Nasi Goreng",
+			Price:  15000,
+			Origin: "Indonesia",
+		},
+		{
+			Name:   "Mie Ayam",
+			Price:  20000,
+			Origin: "Indonesia",
+		},
+	}
+	_ = foods
+	// fmt.Println(foods)
+	// for _, value := range foods {
+	// 	fmt.Printf("Name : %s, Price : %d, Origin : %s \n", value.Name, value.Price, value.Origin)
+	// }
+
+	for _, v := range p1.FavouriteFoods {
+		fmt.Printf("%+v \n", v)
+	}
+}

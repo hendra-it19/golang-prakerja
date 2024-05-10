@@ -1,0 +1,56 @@
+// parameter tidak wajib diisi (...parameter) disebut aleksis dan harus diletakkan di akhir
+
+package main
+
+import "fmt"
+
+func main() {
+	// Greed("Hendra", 20, "Nasi Goreng", "Ayam Bakar")
+	favoriteFoods := []string{
+		"Nasi Goreng",
+		"Ayam Bakar",
+	}
+
+	cetak := Greed("Hendra", 20, favoriteFoods...)
+	fmt.Println(cetak)
+
+	isValid, message := IsValidNumber(8)
+	fmt.Printf("isValid %t, message %s \n", isValid, message)
+
+	fmt.Println(IsValidNumber(8))
+
+	fmt.Println(calc(8, 5))
+
+	var helo func(name string, age int, favoriteFoods ...string) string = Greed
+	fmt.Println(helo("hendra", 20))
+
+	// function anonymous yang menginfoke dirinya sendri
+	func() {
+		fmt.Println("Hello")
+	}()
+}
+
+// func Greed(name string, age int, favoriteFoods ...string) {
+// 	// fmt.Printf("Hellow %s,  umurnya %d \n,", name, age)
+// 	fmt.Printf("name: %s, age: %d, favoriteFoods: %#v \n", name, age, favoriteFoods)
+// }
+
+func Greed(name string, age int, favoriteFoods ...string) string {
+	// fmt.Printf("Hellow %s,  umurnya %d \n,", name, age)
+	var result string = fmt.Sprintf("name: %s, age: %d, favoriteFoods: %#v", name, age, favoriteFoods)
+	return result
+}
+
+func IsValidNumber(num int) (bool, string) {
+	if num%2 == 0 {
+		message := fmt.Sprintf("%d adalah angka yang valid", num)
+		return true, message
+	}
+	message := fmt.Sprintf("%d adalah angka yang tidak valid", num)
+	return false, message
+}
+
+// anonymous function
+var calc func(a int, b int) int = func(a int, b int) int {
+	return a + b
+}
