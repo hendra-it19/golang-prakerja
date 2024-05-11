@@ -9,6 +9,11 @@ type Person struct {
 	Name string
 	Age  int
 }
+type Food struct {
+	Name   string
+	Price  int
+	Origin string
+}
 
 // func
 func Greet() {
@@ -18,6 +23,9 @@ func Greet() {
 // method
 func (p Person) Greet() {
 	fmt.Printf("%+v \n", p)
+}
+func (f Food) Introduce() {
+
 }
 
 func main() {

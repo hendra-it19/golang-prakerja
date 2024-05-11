@@ -51,10 +51,16 @@ var students = []Student{
 	},
 }
 
+// method
+func (value Student) PrintDetailData() {
+	fmt.Printf("Nama %s, Alamat %s, Pekerjaan %s, Alasan %s", value.Name, value.Address, value.Occupation, value.Reason)
+}
+
 func findStudent(id string) {
 	for _, value := range students {
 		if value.Id == id {
-			fmt.Printf("Nama %s, Alamat %s, Pekerjaan %s, Alasan %s", value.Name, value.Address, value.Occupation, value.Reason)
+			// memanggil method
+			value.PrintDetailData()
 			return
 		}
 	}
