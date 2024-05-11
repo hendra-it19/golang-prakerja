@@ -1,0 +1,62 @@
+package main
+
+import "fmt"
+
+func main() {
+
+	// bukan empty string atau 0 tapi nil
+	// var fruits []string
+	// fmt.Println(fruits == nil)
+	// fmt.Printf("%#v \n", fruits)
+
+	// tambah nilai
+	// var fruits []string = []string{
+	// 	"Apple",
+	// 	"Banana",
+	// 	"Mango",
+	// }
+	// fruits = append(fruits, "Durian", "Chalk")
+	// fmt.Printf("%#v \n", fruits)
+
+	// gabung
+	// var fruits []string = []string{
+	// 	"Apple",
+	// 	"Banana",
+	// 	"Mango",
+	// }
+	// var newFruits []string = []string{
+	// 	"Durian",
+	// 	"Chalk",
+	// }
+	// allFruits := append(fruits, newFruits...)
+	// fmt.Printf("%#v \n", allFruits)
+
+	// mengambil nilai
+	// var fruits []string = []string{
+	// 	"Apple",
+	// 	"Banana",
+	// 	"Mango",
+	// }
+	// var newFruits []string = fruits
+	// fmt.Printf("%#v \n", newFruits)
+
+	// mengubah nilai setelah mengambil
+	var fruits []string = []string{
+		"Apple",
+		"Banana",
+		"Mango",
+	}
+	var newFruits []string = fruits
+	// menambah nilai newFruit untuk mendobdrak kapasitas newFruit agar berbeda alamat memorinya sehingga tidak berubah semua nilai slicenya ketika dirubah nilai index tertentu
+	newFruits = append(newFruits, "Pinapple")
+	newFruits[0] = "Durian"
+	fmt.Printf("fruits => %#v \n", fruits)
+	fmt.Printf("newFruits => %#v \n", newFruits)
+	// nilai semua slice akan berubah karena alamat memori dari array yang dirubah
+	fmt.Printf("alamat memori index ke 0 fruits => %#v \n", &fruits[0])
+	fmt.Printf("alamat memori index ke 0 newFruits => %#v \n", &newFruits[0])
+	// tanda ampersand
+	fmt.Printf("fruits len (%d), cap (%d) \n", len(fruits), cap(fruits))
+	fmt.Printf("fruits len (%d), cap (%d) \n", len(newFruits), cap(newFruits))
+
+}

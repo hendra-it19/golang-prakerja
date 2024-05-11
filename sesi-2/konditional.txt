@@ -1,0 +1,55 @@
+package main
+
+import "fmt"
+
+func main() {
+
+	// if else
+	status := true
+	if status {
+		fmt.Println("status true")
+	} else {
+		fmt.Println("status false")
+	}
+
+	if score := 100; score >= 90 && score <= 100 {
+		fmt.Println("Nilai anda bagus sekali!")
+	} else if score >= 80 && score < 90 {
+		fmt.Println("Nilai anda cukup bagus!")
+	} else {
+		fmt.Println("Nilai anda harus diperbaiki lagi!")
+	}
+
+	// switch case
+	month := "January"
+	switch month {
+	case "January":
+		{
+			fmt.Println("Awal tahun")
+		}
+		fallthrough // melanjutkan kondisi berikutnya walaupun sudah memenuhi kondisi
+	case "February":
+		fmt.Println("Bulan kedua")
+	case "March":
+		fmt.Println("Bulan ketiga")
+	default:
+		fmt.Println("Bulan belum terdaftar")
+	}
+
+	nilai := 80
+	switch {
+	case nilai >= 90 && nilai <= 100:
+		{
+			fmt.Println("Nilai anda bagus")
+		}
+	case nilai >= 80 && nilai < 90:
+		{
+			fmt.Println("Nilai anda cukup bagus")
+		}
+	default:
+		{
+			fmt.Println("Perbaiki lagi nilai anda")
+		}
+	}
+
+}
