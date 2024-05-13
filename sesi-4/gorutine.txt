@@ -1,0 +1,45 @@
+package main
+
+// goroutine
+
+import (
+	"fmt"
+	"sync"
+)
+
+func Greed() {
+	fmt.Println("Hello world!")
+}
+
+func main() {
+
+	wg := sync.WaitGroup{}
+
+	var fuits []string = []string{
+		"apple",
+		"banana",
+		"orange",
+		"grape",
+	}
+
+	// wg.Add(len(fuits))
+	for _, v := range fuits {
+		wg.Add(1)
+		go func(fruitName string) {
+			fmt.Println(fruitName)
+			wg.Done()
+		}(v)
+	}
+
+	// wg.Add(1)
+	// go func() {
+	// 	fmt.Println("hello world!")
+	// 	wg.Done()
+	// }()
+
+	fmt.Println("start!")
+
+	wg.Wait()
+
+	// time.Sleep(time.Second * 2)
+}
