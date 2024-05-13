@@ -1,0 +1,18 @@
+package main
+
+// empty interface : bebas mengisi nilai nya
+
+import "fmt"
+
+func main() {
+	var dynamic interface{} = "jhon"
+	dynamic = 10
+	// dynamic = "tes" //true
+	name, ok := dynamic.(string)
+	fmt.Println(name, ok)
+
+	var dynamic2 any = "jhon"
+	fmt.Println(dynamic2)
+	dynamic2 = 10
+	fmt.Println(dynamic2)
+}

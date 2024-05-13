@@ -1,0 +1,36 @@
+package main
+
+import (
+	"fmt"
+	// import package
+	"prakerja-sesi-4/service"
+	// import package dengan alias
+	my_date "prakerja-sesi-4/utils/date"
+)
+
+func main_old1() {
+	Execute()
+
+	// var person service.Person = service.Person{
+	// 	Name:    "John",
+	// 	Age:     40,
+	// 	Address: "Kendari",
+	// }
+	var person service.Person = service.NewPerson(
+		"Jhon",
+		40,
+		"Kendari",
+		"admin",
+	)
+	fmt.Printf("%+v \n", person)
+
+	var product service.Product = service.Product{
+		Title:    "Baju",
+		Price:    38000,
+		Quantity: 23,
+	}
+	fmt.Printf("%+v \n", product)
+
+	// mengambil package
+	fmt.Println(my_date.GetDate())
+}
