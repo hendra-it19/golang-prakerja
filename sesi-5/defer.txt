@@ -1,0 +1,22 @@
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func Greed() {
+	defer fmt.Println("Hello world!")
+	fmt.Println("Invoking Greed")
+}
+
+func main() {
+	Greed()
+	defer fmt.Println("satu")
+	// akan di jalankan terakhir setelah semua perintah dalam blok scope fungsinya sendiri
+	// jika ada dua atau lebih defer maka akan dijalankan yang paling bawah/terakhir
+	fmt.Println("dua")
+	fmt.Println("Tiga")
+	os.Exit(1)
+	// jika menggunakan exit defer dalam scope yang sama tidak akan dijalankan
+}

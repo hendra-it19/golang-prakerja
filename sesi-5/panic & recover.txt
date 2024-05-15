@@ -1,0 +1,47 @@
+package main
+
+import (
+	"errors"
+	"fmt"
+	"os"
+)
+
+type Student struct {
+	Id   string
+	Name string
+}
+
+var students []Student = []Student{
+	{
+		Id:   "1",
+		Name: "Hendra",
+	},
+}
+
+func FindStudent(id string) (Student, error) {
+	for _, v := range students {
+		if v.Id == id {
+			return v, nil
+		}
+	}
+	return Student{}, errors.New("student not found")
+}
+
+func handlePanicError() {
+	if r := recover(); r != nil {
+		fmt.Println(r)
+	}
+}
+
+func main() {
+	// os.Args menunggu inputan nilai command
+	student, err := FindStudent(os.Args[1])
+	if err != nil {
+		// fmt.Println(err)
+		// return
+		panic(err)
+	} else {
+		fmt.Println(student)
+	}
+
+}
